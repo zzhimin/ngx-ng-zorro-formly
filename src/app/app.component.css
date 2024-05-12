@@ -1,0 +1,10 @@
+:host ::ng-deep{
+
+  .ant-tabs-nav {
+    width: 150px;
+  }
+
+  .width100 {
+    width: 100%;
+  }
+}

@@ -1,0 +1,47 @@
+<nz-upload
+  [nzAction]="nzAction"
+  [nzAccept]="nzAccept"
+  [nzDirectory]="nzDirectory"
+  [nzBeforeUpload]="nzBeforeUpload"
+  [nzCustomRequest]="nzCustomRequest"
+  [nzData]="nzData"
+  [(nzFileList)]="nzFileList"
+  [nzLimit]="nzLimit"
+  [nzSize]="nzSize"
+  [nzFileType]="nzFileType"
+  [nzFilter]="nzFilter"
+  [nzHeaders]="nzHeaders"
+  [nzListType]="nzListType"
+  [nzMultiple]="nzMultiple"
+  [nzName]="nzName"
+  [nzShowUploadList]="nzShowUploadList"
+  [nzShowButton]="nzShowButton"
+  [nzWithCredentials]="nzWithCredentials"
+  [nzOpenFileDialogOnClick]="nzOpenFileDialogOnClick"
+  [nzPreview]="nzPreview"
+  [nzPreviewFile]="nzPreviewFile"
+  [nzPreviewIsImage]="nzPreviewIsImage"
+  [nzRemove]="nzRemove"
+  (nzChange)="change($event)"
+  [nzDownload]="nzDownload"
+  [nzTransformFile]="nzTransformFile"
+  [nzIconRender]="nzIconRender"
+  [nzFileListRender]="nzFileListRender"
+  [nzType]="nzType"
+  (nzFileListChange)="fileListChange($event)"
+>
+  <ng-container *ngIf="nzListType === 'text'">
+    <button nz-button type="button" [disabled]="nzDisabled">
+      <i nz-icon nzType="upload"></i>
+      {{ text }}
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="nzListType === 'picture-card'">
+    <div>
+      <i nz-icon nzType="plus"></i>
+      <div style="margin-top: 8px">{{ text }}</div>
+    </div>
+  </ng-container>
+  
+</nz-upload>

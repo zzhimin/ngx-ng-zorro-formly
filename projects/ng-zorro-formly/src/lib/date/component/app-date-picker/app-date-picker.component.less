@@ -1,0 +1,147 @@
+:host {
+  .app-date-picker {
+    .calendar-header {
+      padding: 16px;
+      .left-close {
+        font-size: 14px;
+        color: rgb(149, 156, 166);
+        width: 40px;
+      }
+      .center-title {
+        flex: 1 1 auto;
+        text-align: center;
+        color: #373a55;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .right-Confirm {
+        font-size: 14px;
+        color: rgb(26, 121, 255);
+        text-align: right;
+        width: 40px;
+      }
+    }
+    .line {
+      background-color: #ededed;
+      height: 0.5px;
+      margin-bottom: 4px;
+    }
+    .active-color {
+      color: #1a79ff !important;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .calendar-range {
+      padding: 12px 16px;
+      flex-direction: column;
+      .time {
+        color: #373a55;
+        height: 60px;
+        white-space: nowrap;
+        font-size: 0;
+      }
+      .active-date {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .default-img {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .mark-img {
+        .active-date;
+      }
+
+      .range-time {
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .range-date {
+        font-size: 14px;
+      }
+
+      .range-send {
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+
+    .time-select-wrapper {
+      padding: 0 12px;
+      font-size: 16px;
+      background: #fff;
+      display: flex;
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      .time-select-column {
+        flex: 1;
+        height: 100%;
+        position: relative;
+        touch-action: none;
+        user-select: none;
+        z-index: 0;
+        align-items: center;
+        display: flex;
+        font-size: 16px;
+        height: 100%;
+        justify-content: center;
+        padding: 0 6px;
+        flex-direction: column;
+        transition: transform 0.05s ease-in-out;
+        .time-select-column-item {
+          width: 100%;
+          min-height: 60px;
+          max-height: 60px;
+          line-height: 60px;
+          text-align: center;
+          // overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+      .time-select-mask {
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        z-index: 10000;
+        width: 100%;
+        height: 100%;
+        padding: 0 12px;
+
+        .time-select-mask-top {
+          flex: auto;
+          background: linear-gradient(
+            0deg,
+            hsla(0, 0%, 100%, 0.6),
+            hsla(0, 0%, 100%, 0.8) 50%,
+            #fff
+          );
+        }
+        .time-select-mask-middle {
+          height: 60px;
+          border: 0.5px solid rgba(26, 121, 255, 0.1);
+          border-radius: 30px;
+        }
+        .time-select-mask-bottom {
+          flex: auto;
+          background: linear-gradient(
+            180deg,
+            hsla(0, 0%, 100%, 0.6),
+            hsla(0, 0%, 100%, 0.8) 50%,
+            #fff
+          );
+        }
+      }
+    }
+  }
+}

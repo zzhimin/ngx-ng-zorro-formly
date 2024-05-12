@@ -1,0 +1,112 @@
+:host {
+  #mapcontainer {
+    width: 100%;
+    height: 350px;
+    position: relative;
+
+    .map {
+      width: 60%;
+      height: 100%;
+    }
+
+    .list {
+      position: absolute;
+      right: 1px;
+      height: 300px;
+      width: 37%;
+      z-index: 999;
+
+      .li {
+        line-height: 5px;
+      }
+    }
+
+    ::ng-deep {
+      #list {
+        height: 300px;
+        overflow: hidden;
+        overflow-y: scroll;
+        ::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .address-item-container {
+        align-items: center;
+        border-bottom: 0.5px solid rgb(230, 230, 230);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0px;
+        .address-text-container {
+          text-align: left;
+          width: 90%;
+          .address-text-checked {
+            color: rgb(4, 84, 242);
+          }
+          .address-text {
+            font-size: 16px;
+            line-height: 22p
+          }
+          .address-detail-text {
+            font-size: 10px;
+            line-height: 14px;
+          }
+        }
+        
+      }
+      
+      .ant-input-affix-wrapper {
+        border-radius: 50px;
+      }
+      .amap_lib_placeSearch .poibox.active {
+        color: #0454f2;
+        background: #e9e4e4;
+      }
+      .amap_lib_placeSearch {
+        height: 313px;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      .amap-sug-result {
+        font-size: 14px;
+        /* 使用!important来确保覆盖内联样式 */
+      }
+
+      .amap-copyright {
+        display: none !important;
+      }
+
+      .amap-logo {
+        display: none !important;
+      }
+
+      .amap_lib_placeSearch .poibox .poi-info p {
+        font-size: small !important;
+      }
+
+      .poi-addr .amap-ellipsis {
+        font-size: small;
+      }
+
+      .pageLink {
+        font-size: medium;
+      }
+
+      .amap_lib_placeSearch_page>div>p>span {
+        height: 26px;
+      }
+
+      .amap_lib_placeSearch .amap_lib_placeSearch_page .current {
+        padding: 1px 2px 0 2px;
+      }
+
+      .amap_lib_placeSearch_page {
+        padding: 2px 0 2px 2px;
+      }
+
+      .ant-input-suffix .ng-star-inserted {
+        cursor: pointer;
+      }
+    }
+  }
+}

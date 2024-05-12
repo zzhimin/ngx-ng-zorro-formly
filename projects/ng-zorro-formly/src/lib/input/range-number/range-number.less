@@ -1,0 +1,31 @@
+:host {
+  ::ng-deep {
+    #input-left {
+      width: 45%;
+      text-align: center;
+      border-right-width: 0px;
+      box-shadow: none;
+      &:hover {
+        border-right-width: 1px!important;
+        margin-right: 0px;
+      }
+    }
+    #input-right {
+      width: 45%;
+      text-align: center;
+      border-left-width: 0px;
+      box-shadow: none;
+      &:hover{
+        border-left-width: 1px;
+      }
+    }
+
+    #input-split {
+      width: 10%;
+      border-left: 0px;
+      border-right: 0px;
+      pointer-events: none;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+}

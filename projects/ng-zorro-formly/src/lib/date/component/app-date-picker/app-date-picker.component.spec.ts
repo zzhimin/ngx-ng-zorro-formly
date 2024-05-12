@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgZorroFormlyComponent } from './ng-zorro-formly.component';
+import { AppDatePickerComponent } from './app-date-picker.component';
 
-describe('NgZorroFormlyComponent', () => {
-  let component: NgZorroFormlyComponent;
-  let fixture: ComponentFixture<NgZorroFormlyComponent>;
+describe('AppDatePickerComponent', () => {
+  let component: AppDatePickerComponent;
+  let fixture: ComponentFixture<AppDatePickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgZorroFormlyComponent ]
+      declarations: [ AppDatePickerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgZorroFormlyComponent);
+    fixture = TestBed.createComponent(AppDatePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

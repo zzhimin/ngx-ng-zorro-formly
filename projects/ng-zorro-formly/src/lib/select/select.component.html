@@ -1,0 +1,73 @@
+<div class="d-flex" [class.direction-column]="isMobileTerminal">
+  <nz-select
+    #select
+    [style.flex]="1"
+    [nzPlaceHolder]="to.placeholder"
+    [formControl]="formControl"
+    [formlyAttributes]="field"
+    [compareWith]="to.select?.compareWith"
+    [nzAllowClear]="to.select?.allowClear"
+    [nzAutoClearSearchValue]="to.select?.autoClearSearchValue"
+    [nzBackdrop]="to.select?.backdrop"
+    [nzBorderless]="to.select?.borderless"
+    [nzOpen]="to.select?.open"
+    [nzDropdownClassName]="to.select?.dropdownMatchSelectWidth"
+    [nzDropdownStyle]="to.select?.dropdownStyle"
+    [nzCustomTemplate]="to.select?.customTemplate"
+    [nzServerSearch]="to.select?.serverSearch"
+    [nzMaxMultipleCount]="to.select?.maxMultipleCount"
+    [nzMode]="to.select?.mode"
+    [nzLoading]="to.select?.loading"
+    [nzShowArrow]="to.select?.showArrow"
+    [nzShowSearch]="to.select?.showSearch"
+    [nzMaxTagCount]="to.select?.maxTagCount"
+    [nzMaxTagPlaceholder]="to.select?.maxTagPlaceholder"
+    [nzOptionHeightPx]="to.select?.optionHeightPx"
+    [nzOptionOverflowSize]="to.select?.optionOverflowSize"
+    [nzAutoFocus]="false"
+    (ngModelChange)="to.select?.ngModelChange && to.select?.ngModelChange(field)"
+    (nzBlur)="to.select?.blur && to.select?.blur(field)"
+    (nzFocus)="to.select?.focus && to.select?.focus(field, select)"
+    (nzOpenChange)="to.select?.openChange && to.select?.openChange($event)"
+    (nzScrollToBottom)="
+      to.select?.scrollToBottom && to.select?.scrollToBottom($event)
+    "
+    (nzOnSearch)="to.select?.onSearch && to.select?.onSearch($event)"
+    [ngStyle]="width"
+    >
+    <ng-container
+      *ngFor="let item of to.options | formlySelectOptions: field | async"
+    >
+      <ng-container *ngIf="!to.select?.loading">
+        <nz-option-group *ngIf="item.group" [nzLabel]="item.label">
+          <nz-option
+            *ngFor="let child of item.group"
+            [nzValue]="child.value"
+            [nzDisabled]="child.disabled"
+            [nzLabel]="child.label"
+          >
+          </nz-option>
+        </nz-option-group>
+  
+        <ng-container *ngIf="!item.group">
+          <nz-option
+            [nzValue]="item.value"
+            [nzDisabled]="item.disabled"
+            [nzLabel]="isObject(item.label) ? item.label.label : item.label"
+            nzCustomContent 
+          >
+            <div style="display: flex;justify-content: space-between;align-items: center;" [style.color]="item.disabled ? '#ccc' : ''">
+              <div>{{ isObject(item.label) ? item.label.label : item.label }}</div>
+              <div [style.color]="item.label?.color || black">{{ isObject(item.label) ? item.label.customContent : '' }}</div>
+            </div>
+          </nz-option>
+        </ng-container>
+  
+      </ng-container>
+    </ng-container>
+    <nz-option *ngIf="to.select?.loading" nzDisabled nzCustomContent>
+      <span nz-icon nzType="loading" class="mr-8"></span>
+      正在请求数据...
+    </nz-option>
+  </nz-select>
+</div>

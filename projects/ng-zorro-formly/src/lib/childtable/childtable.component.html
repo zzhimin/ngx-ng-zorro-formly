@@ -1,0 +1,141 @@
+<div style="padding: 0 12px;">
+  <div class="childtable-title"><span style="color: #ff4d4f;" *ngIf="to?.required">*</span>&nbsp;{{ to.childtableTitle }}</div>
+
+  <!-- 移动端 -->
+  <ng-container *ngIf="isMobileTerminal">
+    <nz-empty *ngIf="!field.fieldGroup.length"></nz-empty>
+    <ng-container *ngFor="let data of field.fieldGroup; let i = index;">
+      <nz-descriptions [nzTitle]="getTitle(i)" nzBordered nzSize="small" nzColon="true" [nzExtra]="descriptionsExtra">
+        <ng-container *ngFor="let g of data.fieldGroup;">
+          <nz-descriptions-item [nzTitle]="descriptionsTitle">
+            <formly-field [field]="g"></formly-field>
+          </nz-descriptions-item>
+          <ng-template #descriptionsTitle>
+            <td class="ant-descriptions-item-label">
+              <span style="color: #ff4d4f;" *ngIf="g.templateOptions?.required">*</span>&nbsp;{{ g.templateOptions.label }}
+            </td>
+          </ng-template>
+        </ng-container>
+      </nz-descriptions>
+
+      <ng-template #descriptionsExtra>
+        <a *ngIf="!to?.isDisabled && to?.deleteButton" (click)="remove(i);to?.removeChange(i);" style="border-style: none;">删除</a>
+      </ng-template>
+    </ng-container>
+
+  </ng-container>
+
+  <!-- PC端 -->
+  <ng-container *ngIf="!isMobileTerminal">
+    <nz-table 
+      #subFormTable
+      [nzData]="field.fieldGroup"
+      nzOuterBordered
+      [nzFrontPagination]="true"
+      [nzShowPagination]="true"
+      nzPaginationType="small"
+      [nzNoResult]="null"
+      [nzHideOnSinglePage]="true"
+      [nzPageSize]="10"
+      [nzScroll]="computedScroll"
+      nzSize="small">
+      <thead>
+        <tr>
+          <th nzWidth="4.5%" *ngIf="to?.serialNumber">序号</th>
+  
+          <ng-container *ngFor="let field of field.fieldArray.fieldGroup;">
+            <th 
+              [nzWidth]="field.templateOptions?.width"
+              [style.min-width]="'200px'"
+              *ngIf="!field.hideExpression"
+            ><span style="color: #ff4d4f;" *ngIf="field.templateOptions?.required">*</span>&nbsp;{{ field.templateOptions?.label }}</th>
+          </ng-container>
+  
+          <th [nzWidth]="optWidth" *ngIf="to?.childComponentButtonList?.length > 0 || !to?.isDisabled">操作</th>
+        </tr>
+      </thead>
+      <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+        <ng-container *ngIf="isFormDetail">
+          <ng-container *ngTemplateOutlet="childtableBody; context: {$implicit: subFormTable.data}"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!isFormDetail">
+          <ng-container *ngTemplateOutlet="childtableBody; context: {$implicit: field.fieldGroup}"></ng-container>
+        </ng-container>
+
+        <ng-template #childtableBody let-data>
+          <tr *ngFor="let item of data; let i = index;" cdkDrag>
+            <td *ngIf="to?.serialNumber">{{ i + 1 }}</td>
+
+            <ng-container *ngFor="let g of item.fieldGroup;">
+              <!-- 直接将 hideExpression 设置为false会因为数据共享问题走下面的#showField，增加额外属性 childhide 以处理这个问题  -->
+              <ng-container *ngIf="g.hideExpression || g.childhide; else showField;">
+                <td style="display: none">
+                  <formly-field [field]="setTrue(g)"></formly-field>
+                </td>
+              </ng-container>
+              <ng-template #showField>
+                <td>
+                  <formly-field [field]="g"></formly-field>
+                </td>
+              </ng-template>
+            </ng-container>
+
+            <td *ngIf="to?.childComponentButtonList?.length > 0 || !to?.isDisabled">
+              <a *ngIf="!to?.isDisabled && to?.deleteButton" (click)="remove(i);to?.removeChange(i);" style="border-style: none;">删除</a>
+
+              <ng-container *ngIf="to?.childComponentButtonList?.length > 0">
+                <ng-container *ngFor="let btnInfo of to.childComponentButtonList">
+                  <a (click)="btnInfo.action(item, btnInfo)" style="border-style: none;margin-left: 10px;">{{ btnInfo.title }}</a>
+                </ng-container>
+              </ng-container>
+
+              <span cdkDragHandle>
+                <svg *ngIf="to?.move_up_down" style="width: 22px;height: 22px;margin: 0 5px;vertical-align:middle;cursor:pointer;" t="1705372330081" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6485" width="200" height="200"><path d="M0 0h1024v1024H0z" fill="#131212" fill-opacity="0" p-id="6486"></path><path d="M161.2288 266.24h358.656a33.2288 33.2288 0 0 1 0 66.3552H161.28a33.2288 33.2288 0 1 1 0-66.4064l-0.0512 0.0512z m0 211.712h358.656a33.2288 33.2288 0 0 1 0 66.4064H161.28a33.2288 33.2288 0 1 1 0-66.4064h-0.0512z m0 212.8384h358.656a33.2288 33.2288 0 0 1 0 66.4064H161.28a33.2288 33.2288 0 0 1 0-66.4064h-0.0512z m640.6144 48.5376V284.3648l38.656 42.9568a30.72 30.72 0 0 0 43.8272 1.8432l2.7648-2.56a30.72 30.72 0 0 0 1.024-43.8272l-98.9184-101.6832a25.6 25.6 0 0 0-35.84-0.8704l-107.3664 100.5568a30.72 30.72 0 0 0-1.6896 43.1616l3.584 3.9424a30.72 30.72 0 0 0 43.4176 1.9968l49.8176-45.5168v454.9632l-49.8176-45.5168a30.72 30.72 0 0 0-43.3664 1.9968l-3.6352 3.9424a30.72 30.72 0 0 0 1.6896 43.1616l107.3664 100.608a25.6 25.6 0 0 0 35.84-0.8192l98.9184-101.7856a30.72 30.72 0 0 0-1.024-43.8272l-2.7648-2.56a30.72 30.72 0 0 0-43.8272 1.8432l-38.656 42.9568z" fill="#131212" p-id="6487"></path></svg>
+              </span>
+            </td>
+          </tr>
+        </ng-template>
+
+      </tbody>
+    </nz-table>
+  </ng-container>
+
+  <ng-container *ngIf="!to?.isDisabled">
+    <!-- 普通子表 -->
+    <div class="default-btn" *ngIf="to?.type === 'default'">
+      <button 
+        nz-button 
+        nzType="default" 
+        style="width: 100%;" 
+        *ngIf="to?.addButton" 
+        (click)="add();to?.addChange();">{{ to.addText }}
+      </button>
+      <button 
+        *ngIf="to?.allowImport?.isShow"
+        nz-button 
+        nzType="default" 
+        style="min-width: 50px;margin-left: 10px;"
+        nz-dropdown 
+        [nzDropdownMenu]="allowImport" 
+        nzPlacement="bottomRight"><i nz-icon nzType="ellipsis" nzTheme="outline"></i>
+      </button>
+    </div>
+    <nz-dropdown-menu #allowImport="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item (click)="to?.allowImport.action(1, field)">导入数据</li>
+        <li nz-menu-item (click)="to?.allowImport.action(2, field)">下载模版</li>
+      </ul>
+    </nz-dropdown-menu>
+
+    <!-- 其他按钮事件 -->
+    <div class="default-btn" *ngIf="to?.addAction">
+      <button
+        nz-button 
+        nzType="default" 
+        style="width: 100%;" 
+        (click)="to?.addAction.action(field)"
+      >{{ to?.addAction.text }}</button>
+
+    </div>
+  </ng-container>
+</div>

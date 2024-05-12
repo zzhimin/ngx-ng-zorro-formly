@@ -1,0 +1,69 @@
+<div class="app-date-picker">
+  <div class="ant-row calendar-header">
+    <div class="ant-col left-close" (click)="closeDrawer(false)">取消</div>
+    <div class="ant-col center-title">{{ title }}</div>
+    <div class="ant-col right-Confirm" (click)="closeDrawer(true)">确定</div>
+  </div>
+  <div class="line"></div>
+  <div nz-row class="calendar-range">
+    <div nz-row>
+      <div
+        nz-col
+        [nzSpan]="11"
+        class="time"
+        [style.order]="key"
+        [class]="{
+          'active-color': mode === key,
+          'active-date': formatCount.length <= 3
+        }"
+        *ngFor="let item of timeRanges; let key = index"
+        (click)="changeMode(key)"
+      >
+        <div nz-row class="range-time" *ngIf="formatCount.length > 3">
+          {{ computedTime(item) }}
+        </div>
+        <div nz-row [class]="formatCount.length <= 3 ? 'range-send' : 'range-date'" >
+          {{ computedDate(item) }}
+        </div>
+      </div>
+      <div
+        nz-col
+        [nzSpan]="2"
+        style="order: 0"
+        *ngIf="isRange"
+        [class]="formatCount.length <= 3 ? 'mark-img' : 'default-img'"
+      >
+        <img src="/gridvo-ui/assets/gridvo/smd-image/point_to.png" width="8" height="32" />
+      </div>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="time-select-wrapper">
+    <div
+      class="time-select-column"
+      #TimeSelect
+      *ngFor="let item of renders; let key = index"
+    >
+      <div class="time-select-column-item" *ngIf="item.length % 2 === 0">
+        &nbsp;
+      </div>
+
+      <div class="time-select-column-item">&nbsp;</div>
+
+      <div
+        class="time-select-column-item"
+        [class]="{ 'active-color': value === this.currentCheckDate[key] }"
+        *ngFor="let value of item"
+      >
+        {{ value }} {{ dateUnit[key] }}
+      </div>
+
+      <div class="time-select-column-item">&nbsp;</div>
+    </div>
+    <div class="time-select-mask">
+      <div class="time-select-mask-top"></div>
+      <div class="time-select-mask-middle"></div>
+      <div class="time-select-mask-bottom"></div>
+    </div>
+  </div>
+</div>
