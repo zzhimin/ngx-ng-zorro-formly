@@ -1,33 +1,46 @@
-export function objectFunctionsToString(obj) {
-  // 创建一个新对象或数组来存储转换后的结果
-  let newObj;
-
-  // 检查 obj 是否是一个数组
+export function objectToString(obj, indent = '  ', currentIndent = '') {
+  let output = '';
   if (Array.isArray(obj)) {
-    newObj = [];
-  } else {
-    newObj = {};
-  }
-
-  // 遍历对象或数组的所有元素
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      const value = obj[key];
-
-      // 如果元素是一个函数，则将其转换为字符串
-      if (typeof value === 'function') {
-        // 转换函数为字符串并清理空格和换行符
-        const funcStr = String(value).replace(/\s{2,}/g, ' ').replace(/^\s+|\s+$/gm, '');
-        newObj[key] = funcStr;
-      } else if (typeof value === 'object' && value !== null) {
-        // 如果元素是一个对象或数组，递归调用函数
-        newObj[key] = objectFunctionsToString(value);
-      } else {
-        // 其他类型的元素保持不变
-        newObj[key] = value;
+    output += '[\n';
+    for (let i = 0; i < obj.length; i++) {
+      output += currentIndent + indent + objectToString(obj[i], indent, currentIndent + indent);
+      if (i < obj.length - 1) {
+        output += ',';
       }
+      output += '\n';
     }
+    output += currentIndent + ']';
+  } else if (typeof obj === 'object' && obj !== null) {
+    output += '{\n';
+    let keys = Object.keys(obj);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const value = obj[key];
+      output += currentIndent + indent + key + ': ';
+      if (typeof value === 'function') {
+        output += value.toString();
+      } else if (typeof value === 'object') {
+        output += objectToString(value, indent, currentIndent + indent);
+      } else {
+        output += JSON.stringify(value);
+      }
+      if (i < keys.length - 1) {
+        output += ',';
+      }
+      output += '\n';
+    }
+    output += currentIndent + '}';
+  } else {
+    output += JSON.stringify(obj);
   }
 
-  return newObj;
+  return replaceRxjsFunction(output);
+}
+
+export function replaceRxjsFunction(str) {
+  const regex = /\(0,rxjs(?:_operators)?__WEBPACK_IMPORTED_MODULE_\d+__\.(.*?)\)/g;
+
+  const output = str.replace(regex, '$1');
+
+  return output;
 }

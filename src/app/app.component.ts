@@ -25,7 +25,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormlyFormTemplateComponent } from 'projects/ng-zorro-formly/src/lib/formly-form-template.component';
 import { FormGroup } from '@angular/forms';
 import { deepClone } from 'projects/ng-zorro-formly/src/lib/utils';
-import { objectFunctionsToString } from "./utils";
+import { objectToString, replaceRxjsFunction } from "./utils";
 
 @Component({
   selector: 'app-root',
@@ -73,11 +73,9 @@ export class AppComponent implements OnInit {
    
   handleSelect($event: any) {
     const config = this.rawFieldConfig.find(tab => tab.name == $event.name);
-    const config2 = objectFunctionsToString(config);
-    const configJson = JSON.parse(JSON.stringify(config2.config));
-    const configText = JSON.stringify(configJson, null, 4);
+
     setTimeout(() => {
-      this.fieldConfig = configText;
+      this.fieldConfig = objectToString(config);
     }, 0);
   }
 }

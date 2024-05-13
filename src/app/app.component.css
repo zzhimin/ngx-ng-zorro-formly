@@ -6,6 +6,7 @@
 
   .ant-tabs-content-holder {
     padding: 15px;
+    overflow-y: auto;
   }
 
   .width100 {
