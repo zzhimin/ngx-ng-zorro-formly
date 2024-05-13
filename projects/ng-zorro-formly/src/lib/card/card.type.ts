@@ -13,6 +13,7 @@ import { FieldType, FieldWrapper } from '@ngx-formly/core';
       [nzHoverable]="!!to.card?.hoverable"
       [nzTitle]="to.card?.title"
       [nzType]="to.card?.type"
+      [nzSize]="to.card?.size"
       [nzLoading]="to.card?.loading"
     >
       <ng-container #fieldComponent></ng-container>

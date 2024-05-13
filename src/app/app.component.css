@@ -4,6 +4,10 @@
     width: 150px;
   }
 
+  .ant-tabs-content-holder {
+    padding: 15px;
+  }
+
   .width100 {
     width: 100%;
   }

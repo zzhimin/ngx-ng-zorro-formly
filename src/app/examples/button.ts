@@ -7,7 +7,6 @@ export const button = {
       template: '<div><strong>基本使用</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {
@@ -24,7 +23,6 @@ export const button = {
       template: '<hr /><div><strong>圆形按钮</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {
@@ -43,7 +41,6 @@ export const button = {
       template: '<hr /><div><strong>icon + 按钮</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {
@@ -61,7 +58,6 @@ export const button = {
       template: '<hr /><div><strong>小按钮</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {
@@ -79,7 +75,6 @@ export const button = {
       template: '<hr /><div><strong>幽灵按钮</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {
@@ -97,7 +92,6 @@ export const button = {
       template: '<hr /><div><strong>危险按钮</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {
@@ -115,7 +109,6 @@ export const button = {
       template: '<hr /><div><strong>Block 按钮</strong></div>'
     },
     {
-      key: guid(),
       type: 'button',
       className: 'ant-col  ant-col-24',
       templateOptions: {

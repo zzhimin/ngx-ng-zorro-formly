@@ -6,6 +6,7 @@ import {
   radio,
   rate,
   select,
+  cascader,
   slider,
   switchs,
   time,
@@ -13,6 +14,11 @@ import {
   upload,
   rich,
   button,
+
+  layoutCard,
+  layoutTabs,
+  layoutTransfer,
+  layoutCollapse,
 } from './examples/public-api';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormlyFormTemplateComponent } from 'projects/ng-zorro-formly/src/lib/formly-form-template.component';
@@ -35,6 +41,7 @@ export class AppComponent implements OnInit {
     radio,
     rate,
     select,
+    cascader,
     slider,
     switchs,
     time,
@@ -42,6 +49,11 @@ export class AppComponent implements OnInit {
     upload,
     rich,
     button,
+
+    layoutCard,
+    layoutTabs,
+    layoutTransfer,
+    layoutCollapse,
   ];
 
   tabs: Array<any> = [];
