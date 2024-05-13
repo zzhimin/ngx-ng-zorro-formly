@@ -22,7 +22,7 @@ import { FormlyNzTimeModule } from './time/time.module';
 import { FormlyNzTransferModule } from './transfer/transfer.module';
 import { FormlyNzTreeSelectModule } from './tree-select/tree-select.module';
 import { FormlyNzUploadModule } from './upload/upload.module';
-// import { FormlyNzChildtableModule } from "./childtable/childtable.module";
+import { FormlyNzChildtableModule } from "./childtable/childtable.module";
 import { FormlyRichModule } from "./rich/rich.module";
 // import { FormlyNzStepsModule } from "./steps/steps.module";
 import { FormlyNzCollapseModule } from "./collapse/collapse.module";
@@ -55,7 +55,7 @@ import { FormlyFormTemplateComponent } from "./formly-form-template.component";
     FormlyNzCardModule,
     FormlyNzTabsModule,
     FormlyNzInputGroupModule,
-    // FormlyNzChildtableModule,
+    FormlyNzChildtableModule,
     FormlyRichModule,
     // FormlyNzStepsModule,
     FormlyNzCollapseModule,

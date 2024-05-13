@@ -1,10 +1,9 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
-import { isMobile } from '@app/core/utils';
+import { isMobile } from '../utils';
 import { FieldArrayType } from '@ngx-formly/core';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
-import { translateid } from '@app/modules/workbench/widget/smd-module/components/smd-form-render/logic/utils';
 
 @Component({
   selector: 'formly-field-childtable',
@@ -29,10 +28,6 @@ export class FormlyFieldChildtable extends FieldArrayType implements OnInit, OnD
     this.rxSubscriptions && this.rxSubscriptions.unsubscribe();
   }
 
-  get isFormDetail() {
-    return this.field.options.formState.isDetail;
-  }
-
   get computedScroll() {
     const len = this.field.fieldArray.fieldGroup.length;
     return { x: `${len * 200}px` };
@@ -40,9 +35,12 @@ export class FormlyFieldChildtable extends FieldArrayType implements OnInit, OnD
 
   get optWidth() {
     const baseWidth = 80;
-    const len = this.to?.childComponentButtonList?.length;
-    if (len && len > 0) {
-      return `${baseWidth + baseWidth * len}px`;
+    let titleLen = this.to?.moreAction?.reduce((prev, item) => prev += item.title.length, 0);
+    if (this.to?.isDrag) {
+      titleLen += 1
+    }
+    if (titleLen && titleLen > 0) {
+      return `${baseWidth + 15 * titleLen}px`;
     } else {
       return `${baseWidth}px`;
     }
@@ -56,7 +54,7 @@ export class FormlyFieldChildtable extends FieldArrayType implements OnInit, OnD
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.field.model, event.previousIndex, event.currentIndex);
     this.field.model.forEach((item, i) => {
-      item[translateid(this.subTableSortFieldId)] = i;
+      item[this.subTableSortFieldId] = i;
     })
     moveItemInArray(this.field.fieldGroup, event.previousIndex, event.currentIndex);
   }

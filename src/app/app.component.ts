@@ -19,6 +19,7 @@ import {
   layoutTabs,
   layoutTransfer,
   layoutCollapse,
+  layoutChildtable,
 } from './examples/public-api';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormlyFormTemplateComponent } from 'projects/ng-zorro-formly/src/lib/formly-form-template.component';
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit {
     layoutTabs,
     layoutTransfer,
     layoutCollapse,
+    layoutChildtable,
   ];
 
   tabs: Array<any> = [];
