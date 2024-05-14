@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "14.x"
       - name: Cache NPM dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.OS }}-npm-cache
@@ -28,8 +28,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github\_token: ${{ secrets.ZZM\_TOKEN }}
-          publish\_dir: ./dist
+          folder: dist
 
