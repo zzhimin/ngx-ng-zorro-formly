@@ -370,7 +370,6 @@ export const fieldLinkage = {
       key: 'clodisable',
       type: 'select',
       className: 'ant-col  ant-col-24',
-      wrappers: ['childtable-form-field'],
       templateOptions: {
         label: '列启用、禁用',
         placeholder: '请选择',
@@ -397,35 +396,22 @@ export const fieldLinkage = {
         onInit: (field: FormlyFieldConfig) => {
           const clodisabletable = field.form.get('clodisabletable') as FormArray;
           field.formControl.valueChanges.subscribe(res => {
-              
-              if (res) {
-                for (let i = 0; i < clodisabletable.length; i++) {
-                  clodisabletable.at(i).get('money')?.disable();
-                }
+            for (let i = 0; i < clodisabletable.length; i++) {
+              if (!res) {
+                clodisabletable.at(i).get('money')?.disable();
               } else {
-                for (let i = 0; i < clodisabletable.length; i++) {
-                  clodisabletable.at(i).get('money')?.enable();
-                }
+                clodisabletable.at(i).get('money')?.enable();
               }
+            }
 
-              // 或者你只想禁用金额大于200的列
-              // if (!res) {
-              //   for (let i = 0; i < clodisabletable.length; i++) {
-              //     if (clodisabletable.at(i).value.money > 200) {
-              //       clodisabletable.at(i).get('money')?.disable();
-              //     } else {
-              //       clodisabletable.at(i).get('money')?.enable();
-              //     }
-              //   }
-              // } else {
-              //   for (let i = 0; i < clodisabletable.length; i++) {
-              //     if (clodisabletable.at(i).value.money > 200) {
-              //       clodisabletable.at(i).get('money')?.disable();
-              //     } else {
-              //       clodisabletable.at(i).get('money')?.enable();
-              //     }
-              //   }
-              // }
+            // 或者你只想禁用金额大于200的列
+            // for (let i = 0; i < clodisabletable.length; i++) {
+            //   if (clodisabletable.at(i).value.money > 200 && !res) {
+            //     clodisabletable.at(i).get('money')?.disable();
+            //   } else {
+            //     clodisabletable.at(i).get('money')?.enable();
+            //   }
+            // }
           })
         }
       }
@@ -494,6 +480,6 @@ export const fieldLinkage = {
       },
     },
 
-    
+
   ] as FormlyFieldConfig
 }
