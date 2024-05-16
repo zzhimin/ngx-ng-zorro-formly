@@ -1,6 +1,6 @@
 # Ngx-Formly-Ng-Zorro
 
-这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://github.com/NG-ZORRO/ng-zorro-antd)主题UI，基
+这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://github.com/NG-ZORRO/ng-zorro-antd)主题UI。
 
 ## 使用方法
   目前已支持Angular 12
