@@ -1,10 +1,11 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, QueryList, TemplateRef, ViewChild, ViewChildren } from '@angular/core';
 import { fromEvent } from "rxjs";
 import { map, switchMap, takeUntil } from "rxjs/operators";
-import * as moment from 'moment';
+import * as moment_ from 'moment';
 import { deepClone, generateArr } from '../../../utils';
 import { isArray, isNumber } from 'lodash';
 import { NzDrawerRef } from 'ng-zorro-antd/drawer';
+const moment = moment_;
 type NumberArray = number[];
 type StringArray = string[];
 @Component({

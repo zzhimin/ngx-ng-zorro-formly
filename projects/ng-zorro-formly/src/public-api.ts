@@ -3,3 +3,4 @@
  */
 
 export * from './lib/formly-ng-zorro.module';
+export * from './lib/formly-form-template.component'

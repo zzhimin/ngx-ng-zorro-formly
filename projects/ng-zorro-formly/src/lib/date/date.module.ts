@@ -7,10 +7,10 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyNzFormFieldModule } from '../form-field/form-field.module';
 import { FormlyFieldDate } from './date.type';
 import { DateFormly, RangeDateFormly } from '.';
-import { AppDatePickerComponent } from './component/app-date-picker/app-date-picker.component';
+// import { AppDatePickerComponent } from './component/app-date-picker/app-date-picker.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 @NgModule({
-  declarations: [FormlyFieldDate, AppDatePickerComponent],
+  declarations: [FormlyFieldDate],
   imports: [
     CommonModule,
     NzDatePickerModule,

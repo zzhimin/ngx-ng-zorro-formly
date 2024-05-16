@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { isMobile } from '../utils';
-import { AppDatePickerComponent } from './component/app-date-picker/app-date-picker.component';
+// import { AppDatePickerComponent } from './component/app-date-picker/app-date-picker.component';
 import { FieldType } from '@ngx-formly/core';
 import { NzDrawerRef, NzDrawerService } from 'ng-zorro-antd/drawer';
 import { endOfMonth,startOfMonth,endOfToday, startOfToday,endOfWeek,startOfWeek,format,addMonths} from 'date-fns';
@@ -148,21 +148,21 @@ export class FormlyFieldDate extends FieldType {
 
   // 移动端时间抽屉
   openAppTime() {
-    this.drawerRef = this.drawerService.create({
-      nzTitle: null,
-      nzContent: AppDatePickerComponent,
-      nzFooter: null,
-      nzPlacement: "bottom",
-      nzWidth: "100%",
-      nzHeight: "auto",
-      nzClosable: false,
-      nzBodyStyle: {
-        padding: 0
-      },
-      nzContentParams: {
-        to: this.to,
-        field: this.field
-      }
-    });
+    // this.drawerRef = this.drawerService.create({
+    //   nzTitle: null,
+    //   nzContent: AppDatePickerComponent,
+    //   nzFooter: null,
+    //   nzPlacement: "bottom",
+    //   nzWidth: "100%",
+    //   nzHeight: "auto",
+    //   nzClosable: false,
+    //   nzBodyStyle: {
+    //     padding: 0
+    //   },
+    //   nzContentParams: {
+    //     to: this.to,
+    //     field: this.field
+    //   }
+    // });
   }
 }
