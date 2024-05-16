@@ -43,14 +43,17 @@
 
   5. 引入组件
     在需要构建表单的地方引入模板组件。form、model、options不传，将会使用默认，如果要用的话可以通过组件实例拿到。
+
     ```
     <formly-form-template 
       #formlyFormTemplate
       [configs]="configs"
     ></formly-form-template>
     ```
+
   6. 传入配置项
     使用[ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)提供的组件配置模板 配置configs。
+
     ```
     import { Component, OnInit } from '@angular/core';
     import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -74,7 +77,7 @@
         this.configs = [
         ...控件配置
         ]
-        ```
+
       }
 
       submit() {
@@ -82,4 +85,5 @@
         console.log('model >>:', model);
       }
     }
+    ```
 
