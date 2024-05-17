@@ -1,4 +1,4 @@
-# Ngx-Formly-Ng-Zorro
+# Ngx-Ng-Zorro-Formly
 
 这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://github.com/NG-ZORRO/ng-zorro-antd)主题UI。
 配置模板 [ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)。
@@ -87,8 +87,11 @@
       }
 
       submit() {
-        const model = this.formlyFormTemplate.model;
-        console.log('model >>:', model);
+        const valid = this.formlyFormTemplate.validForm();
+        if (valid) {
+          const model = this.formlyFormTemplate.submit();
+          console.log('model >>:', model);
+        }
       }
     }
     ```
