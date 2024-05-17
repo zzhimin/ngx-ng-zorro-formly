@@ -1,6 +1,7 @@
-# Ngx-Formly-Ng-Zorro
+# Ngx-Ng-Zorro-Formly
 
-这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://github.com/NG-ZORRO/ng-zorro-antd)主题UI，基
+这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://github.com/NG-ZORRO/ng-zorro-antd)主题UI。
+配置模板 [ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)。
 
 ## 使用方法
   目前已支持Angular 12
@@ -13,10 +14,12 @@
     ```
     yarn add @ngx-formly/core@5.12.7
     ```
-3. 安装 ng-zorro-formly
+3. 安装 ng-zorro-formly，安装富文本库quill
    ```
-    yarn add ng-zorro-formly
+    yarn add ng-zorro-formly quill@1.3.7
    ```
+
+
 4. 配置初始化
    在项目的 app.module.ts 导入 `FormlyNgZorroModule`;
     ```
@@ -32,7 +35,12 @@
         imports: [
             ...
             NzFormModule,
-            FormlyModule.forRoot({ extras: { lazyRender: true } }),
+            FormlyModule.forRoot({ 
+              extras: { lazyRender: true },
+              validationMessages: [
+                {name: 'required', message: requiredValidationMessage}
+              ]
+            }),
             FormlyNgZorroModule,
         ],
     })
@@ -41,14 +49,17 @@
 
   5. 引入组件
     在需要构建表单的地方引入模板组件。form、model、options不传，将会使用默认，如果要用的话可以通过组件实例拿到。
+
     ```
     <formly-form-template 
       #formlyFormTemplate
       [configs]="configs"
     ></formly-form-template>
     ```
+
   6. 传入配置项
     使用[ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)提供的组件配置模板 配置configs。
+
     ```
     import { Component, OnInit } from '@angular/core';
     import { FormlyFieldConfig } from '@ngx-formly/core';
@@ -72,12 +83,16 @@
         this.configs = [
         ...控件配置
         ]
-        ```
+
       }
 
       submit() {
-        const model = this.formlyFormTemplate.model;
-        console.log('model >>:', model);
+        const valid = this.formlyFormTemplate.validForm();
+        if (valid) {
+          const model = this.formlyFormTemplate.submit();
+          console.log('model >>:', model);
+        }
       }
     }
+    ```
 
