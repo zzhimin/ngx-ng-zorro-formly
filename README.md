@@ -4,7 +4,7 @@
 配置模板 [ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)。
 
 ## 使用方法
-  目前已支持Angular 12
+  这个版本适配Angular 12
 
 1. 安装ng-zorro
     ```
