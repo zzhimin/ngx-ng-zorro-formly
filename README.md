@@ -15,8 +15,9 @@
     yarn add @ngx-formly/core@5.12.7
     ```
 3. 安装 ng-zorro-formly，安装富文本库quill
+  安装ng-zorro-formly 0.0.x的版本
    ```
-    yarn add ng-zorro-formly quill@1.3.7
+    yarn add ng-zorro-formly@0.0.x quill@1.3.7
    ```
 
 
