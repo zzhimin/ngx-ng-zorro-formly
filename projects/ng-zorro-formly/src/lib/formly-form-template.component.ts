@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 
@@ -23,7 +23,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 })
 export class FormlyFormTemplateComponent {
   @ViewChild("submitBtn", { static: false  }) submitBtn: ElementRef;
-  @Input() form = new FormGroup({});
+  @Input() form = new UntypedFormGroup({});
   @Input() model: any = { };
   @Input() configs: FormlyFieldConfig[] = [];
   @Input() options: FormlyFormOptions = {};

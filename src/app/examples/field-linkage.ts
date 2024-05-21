@@ -1,4 +1,4 @@
-import { FormArray } from "@angular/forms";
+import { UntypedFormArray } from "@angular/forms";
 import { FormlyFieldConfig } from "@ngx-formly/core";
 import { guid } from "projects/ng-zorro-formly/src/lib/utils";
 import { of } from "rxjs";
@@ -394,7 +394,7 @@ export const fieldLinkage = {
       },
       hooks: {
         onInit: (field: FormlyFieldConfig) => {
-          const clodisabletable = field.form.get('clodisabletable') as FormArray;
+          const clodisabletable = field.form.get('clodisabletable') as UntypedFormArray;
           field.formControl.valueChanges.subscribe(res => {
             for (let i = 0; i < clodisabletable.length; i++) {
               if (!res) {

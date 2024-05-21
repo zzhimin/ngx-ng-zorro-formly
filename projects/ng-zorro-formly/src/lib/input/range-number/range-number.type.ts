@@ -8,8 +8,8 @@ import {
   Input,
 } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
@@ -54,7 +54,7 @@ import { OnChangeType, OnTouchedType } from 'ng-zorro-antd/core/types';
 })
 export class FormlyFieldRangeNumber {
   @Output() onRangeChange = new EventEmitter<any>();
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
 
   @Input() placeholder = ['请输入开始值', '请输入结束值'];
   @Input() to;
@@ -74,7 +74,7 @@ export class FormlyFieldRangeNumber {
 
   constructor(
     private cdr: ChangeDetectorRef,
-     private fb: FormBuilder
+     private fb: UntypedFormBuilder
   ) {}
 
   onChange: OnChangeType = () => { };

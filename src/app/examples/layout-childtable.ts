@@ -1,4 +1,4 @@
-import { FormArray } from "@angular/forms";
+import { UntypedFormArray } from "@angular/forms";
 import { FormlyFieldConfig } from "@ngx-formly/core";
 import { guid } from "projects/ng-zorro-formly/src/lib/utils";
 import { of } from "rxjs";
@@ -436,7 +436,7 @@ export const layoutChildtable = {
       },
       hooks: {
         onInit: (field) => {
-          const childtableControl = field.form.get('childtable5') as FormArray;
+          const childtableControl = field.form.get('childtable5') as UntypedFormArray;
           childtableControl.valueChanges.subscribe((vals) => {
             console.log('vals >>:', vals);
           })
