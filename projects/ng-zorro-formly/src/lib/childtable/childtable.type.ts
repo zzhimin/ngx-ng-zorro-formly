@@ -29,6 +29,7 @@ export class FormlyFieldChildtable extends FieldArrayType implements OnInit, OnD
   }
 
   get computedScroll() {
+    // @ts-ignore
     const len = this.field.fieldArray.fieldGroup.length;
     return { x: `${len * 200}px` };
   }

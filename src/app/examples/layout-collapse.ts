@@ -19,7 +19,10 @@ export const layoutCollapse = {
         {
           fieldGroupClassName: 'ant-row',
           templateOptions: {
-            label: '折叠面板1'
+            label: '折叠面板1',
+            activeChange: ($event) => {
+              console.log('$event >>:', $event);
+            },
           },
           fieldGroup: [
             {
@@ -77,7 +80,10 @@ export const layoutCollapse = {
         },
         {
           templateOptions: {
-            label: '折叠面板2'
+            label: '折叠面板2',
+            activeChange: ($event) => {
+              console.log('$event >>:', $event);
+            },
           },
           fieldGroup: [
             {
@@ -152,7 +158,10 @@ export const layoutCollapse = {
         {
           fieldGroupClassName: 'ant-row',
           templateOptions: {
-            label: '折叠面板1'
+            label: '折叠面板1',
+            activeChange: ($event) => {
+              console.log('$event >>:', $event);
+            },
           },
           fieldGroup: [
             {
@@ -210,7 +219,10 @@ export const layoutCollapse = {
         },
         {
           templateOptions: {
-            label: '折叠面板2'
+            label: '折叠面板2',
+            activeChange: ($event) => {
+              console.log('$event >>:', $event);
+            },
           },
           fieldGroup: [
             {

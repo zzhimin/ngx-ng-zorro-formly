@@ -12,7 +12,7 @@ export const time = {
       key: guid(),
       type: 'time',
       className: 'ant-col  ant-col-24',
-      defaultValue: false,
+      defaultValue: new Date(),
       templateOptions: {
         label: '时间选择',
         required: false,
@@ -36,7 +36,7 @@ export const time = {
       key: guid(),
       type: 'time',
       className: 'ant-col  ant-col-24',
-      defaultValue: false,
+      defaultValue: null,
       templateOptions: {
         label: '时间选择',
         required: false,
@@ -61,7 +61,7 @@ export const time = {
       key: guid(),
       type: 'time',
       className: 'ant-col  ant-col-24',
-      defaultValue: false,
+      defaultValue: null,
       templateOptions: {
         label: '时间选择',
         required: false,
