@@ -120,6 +120,7 @@ export const fieldLinkage = {
       },
       hooks: {
         onInit: (field: FormlyFieldConfig) => {
+          // 这里可以做更多隐藏逻辑控制
           const nameControl = field.form.get('name2');
           nameControl.valueChanges.pipe(
             startWith(nameControl.value),
@@ -127,9 +128,9 @@ export const fieldLinkage = {
           ).subscribe(val => {
             if (val) {
               field.formControl.reset();
-              field.hideExpression = true;
+              field.hide = true;
             } else {
-              field.hideExpression = false;
+              field.hide = false;
             }
           });
         }
@@ -138,7 +139,7 @@ export const fieldLinkage = {
 
     {
       className: 'width100',
-      template: '<hr /><div><strong>禁用、不禁用</strong></div>'
+      template: '<hr /><div><strong>禁用、启用</strong></div>'
     },
     {
       key: 'name3',
@@ -158,7 +159,7 @@ export const fieldLinkage = {
         },
         options: [
           { label: '禁用', value: true },
-          { label: '不禁用', value: false },
+          { label: '启用', value: false },
         ],
         select: {
           loading: false,
@@ -187,6 +188,7 @@ export const fieldLinkage = {
         },
       },
       hooks: {
+        // 这种方式可以做更多控制
         onInit: (field: FormlyFieldConfig) => {
           const nameControl = field.form.get('name3');
           nameControl.valueChanges.pipe(
@@ -261,9 +263,9 @@ export const fieldLinkage = {
             distinctUntilChanged(),
           ).subscribe(val => {
             if (val) {
-              field.templateOptions.required = true;
+              field.props.required = true;
             } else {
-              field.templateOptions.required = false;
+              field.props.required = false;
             }
           });
         }

@@ -1,22 +1,23 @@
 # Ngx-Ng-Zorro-Formly
 
-这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://github.com/NG-ZORRO/ng-zorro-antd)主题UI。
+这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://ng.ant.design/docs/introduce/zh)主题UI。
+
 配置模板 [ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)。
 
 ## 使用方法
-  目前已支持Angular 12
+  支持Angular 13 及以上版本
 
 1. 安装ng-zorro
     ```
-    ng add ng-zorro-antd@12.1.1
+    ng add ng-zorro-antd
     ```
 2. 安装 ngx-formly
     ```
-    yarn add @ngx-formly/core@5.12.7
+    yarn add @ngx-formly/core
     ```
 3. 安装 ng-zorro-formly，安装富文本库quill
    ```
-    yarn add ng-zorro-formly quill@1.3.7
+    yarn add ng-zorro-formly quill
    ```
 
 
