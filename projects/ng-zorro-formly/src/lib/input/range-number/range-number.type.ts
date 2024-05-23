@@ -19,8 +19,7 @@ import { OnChangeType, OnTouchedType } from 'ng-zorro-antd/core/types';
   selector: 'range-number',
   template: `
     <nz-input-group nzCompact [formGroup]="validateForm">
-      <nz-input-number    
-        nzBorderless       
+      <nz-input-number        
         nz-input 
         [nzPlaceHolder]="to.placeholder[0]" 
         id="input-left"
@@ -34,7 +33,6 @@ import { OnChangeType, OnTouchedType } from 'ng-zorro-antd/core/types';
         id="input-split"
       />
       <nz-input-number
-        nzBorderless 
         nz-input
         [nzPlaceHolder]="to.placeholder[1]" 
         id="input-right" 

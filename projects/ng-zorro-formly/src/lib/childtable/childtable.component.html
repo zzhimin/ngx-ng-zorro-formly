@@ -124,7 +124,7 @@
     </div>
     <nz-dropdown-menu #addMore="nzDropdownMenu">
       <ul nz-menu>
-        <li nz-menu-item *ngFor="let item of to?.addMore;" (click)="to?.addMore.action(field)">导入数据</li>
+        <li nz-menu-item *ngFor="let item of to?.addMore;" (click)="item.action(field)">{{ item.text }}</li>
       </ul>
     </nz-dropdown-menu>
   </ng-container>
