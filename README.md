@@ -26,7 +26,7 @@
     ```
     import { FormlyModule } from '@ngx-formly/core';
     import { NzFormModule } from 'ng-zorro-antd/form';
-    import { FormlyNgZorroModule } from 'ngx-formly-ng-zorro';
+    import { FormlyNgZorroModule } from 'ng-zorro-formly';
 
     function requiredValidationMessage(err: any, field: any) {
       return `${field.templateOptions.label} 为必填项`;
