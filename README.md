@@ -2,7 +2,9 @@
 
 这是[ngx-formly](https://github.com/ngx-formly/ngx-formly)的[ng-zorro](https://ng.ant.design/docs/introduce/zh)主题UI。
 
-配置模板 [ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)。
+配置模板 [ngx-ng-zorro-formly](https://zzhimin.github.io/ngx-ng-zorro-formly/)。你可以直接copy相关field的配置项到你的项目里，然后针对性修改配置。
+
+Angular17[在线体验](https://stackblitz.com/edit/stackblitz-starters-cam7js?file=src%2Fmain.ts)
 
 ## 使用方法
   支持Angular 13 及以上版本
