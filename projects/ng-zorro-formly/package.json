@@ -1,6 +1,6 @@
 {
   "name": "ng-zorro-formly",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "peerDependencies": {
     "@angular/common": "~15.2.10",
     "@angular/core": "~15.2.10",
