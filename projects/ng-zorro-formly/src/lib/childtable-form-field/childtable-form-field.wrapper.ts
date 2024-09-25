@@ -23,8 +23,16 @@ import {
     <nz-form-item style="margin-bottom: 0;">
       <nz-form-control
         [nzSpan]="24"
+        [nzValidateStatus]="errorState"
+        [nzErrorTip]="errorTpl"
       >
         <ng-container #fieldComponent></ng-container>
+
+        <ng-template #errorTpl let-control>
+          <formly-validation-message
+            [field]="field"
+          ></formly-validation-message>
+        </ng-template>
       </nz-form-control>
     </nz-form-item>
   `,

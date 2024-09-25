@@ -34,6 +34,7 @@ export const layoutChildtable = {
             templateOptions: {
               label: 'A',
               width: '25%',
+              required: true,
               options: [
                 { value: '1', label: 'A' },
                 { value: '2', label: 'B' },
